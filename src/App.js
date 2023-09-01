@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Header from "./components/Header/Header.js";
+import Card from "./components/Card/Card";
+import Button from "./components/Button/Button";
 function App() {
+  const numberOfCards = 5;
+  const numberOfButtons = 13;
+
+  const cards = Array.from({ length: numberOfCards }, (_, index) => (
+    <Card key={index} />
+  ));
+
+  const buttons = Array.from({ length: numberOfButtons }, (_, index) => (
+    <Button key={index} />
+  ));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="content">
+        <div className="cards-container">{cards}</div>
+        <div className="green-border-container">{buttons}</div>
+      </div>
     </div>
   );
 }
